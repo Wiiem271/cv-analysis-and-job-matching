@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/assets/css/p.css">
+    <title>Upload CVs and Job Description</title>
+    <style>
+         body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 50%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #B22222;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+    color: #FAFAD2;
+    text-align: center;
+    font-size: 30px; /* Augmenter la taille de la police */
+}
+        label, textarea, input[type="submit"], input[type="file"] {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+        strong {
+            font-weight: bold;
+        }
+        textarea {
+            width: 100%;
+            height: 300px;
+            resize: vertical;
+        }
+        input[type="submit"] {
+    width: 150px;
+    background-color: #B22222;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+        input[type="file"] {
+                padding: 15px;
+                font-size: 20px;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+                }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Your <strong>CVs</strong> and Enter <strong>Job Description</strong></h2>
+        <form method="POST" enctype="multipart/form-data" id="upload-form">
+            {{ form.hidden_tag() }}
+            <label for="cv_files"><strong>Upload Your CVs:</strong></label>
+            <input type="file" id="cv_files" name="file" multiple> <br>
+            <label for="job_description"><strong>Enter Job Description:</strong></label><br>
+            <textarea id="job_description" name="job_description" rows="4" cols="50" placeholder="Describe the job requirements here..."></textarea><br>
+            <input type="submit" value="Submit" onclick="showAnalysisMessage()">
+        </form>
+        <!-- Analysis message hidden by default -->
+        <p class="analysis-message" id="analysis-message" style="display: none;">Your analysis is in progress. Please wait...</p>
+    </div>
+
+    <!-- Script to show analysis message when form is submitted -->
+    <script>
+        function showAnalysisMessage() {
+            // Show the analysis message when the form is submitted
+            document.getElementById('analysis-message').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+

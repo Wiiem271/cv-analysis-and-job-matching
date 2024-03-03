@@ -1,0 +1,6 @@
+pip install flask 
+pip install Flask-WTF
+pip install openai==0.28
+
+** For Data Base ( MongoDb) ** 
+pip install mongoengine

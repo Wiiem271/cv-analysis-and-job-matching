@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/assets/css/p.css">
+    <title>Login</title>
+      <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 50%;
+            padding: 20px;
+            margin: auto;
+            border: 2px solid black; /* Bordures en noir */
+            border-radius: 10px;
+            background-color: #B22222;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #FAFAD2;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold; /* Texte en gras */
+        }
+        label, input[type="submit"] {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            color: black;
+        }
+        strong {
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"] {
+            width: 80%;
+            padding: 15px;
+            font-size: 20px;
+            border-radius: 10px;
+            border: 2px solid #000; /* Bordures en noir */
+            text-align: center;
+            color: black; /* Couleur du texte */
+        }
+        input[type="submit"] {
+            width: 150px;
+            background-color: #B22222;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+    {% for category,message in messages %}
+    <div class="alert alert-{{category}}">
+        <p>{{message}}</p>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form action="" method="post" novalidate>
+        <fieldset class="form-group">
+            <legend>{{title}}</legend>
+
+            {{ form.hidden_tag() }}
+            <p>
+                {{form.email.label}} <br>
+                {{form.email(size=35)}}
+                {% for error in form.email.errors %}
+                <span>{{error}}</span>
+                {%endfor%}
+            </p>
+            <p>
+                {{form.password.label}} <br>
+                {{form.password(size=35)}}
+                {% for error in form.password.errors %}
+                <span>{{error}}</span>
+                {%endfor%}
+            </p>
+            <p>
+                {{form.submit()}}
+            </p>
+        </fieldset>
+    </form>
+</body>
+</html>
+
