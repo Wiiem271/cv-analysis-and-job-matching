@@ -39,7 +39,7 @@ app.config['MONGODB_SETTINGS'] = {
 
 initialize_db(app)
 # Configuration du clé API OpenAI
-openai.api_key = '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'
+openai.api_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 
 
 
